@@ -26,6 +26,13 @@ class Snake:
         snake_body.goto(position)
         self.snake_piece.append(snake_body)
 
+    def reset(self):
+        for piece in self.snake_piece:
+            piece.goto(1000, 1000)
+        self.snake_piece.clear()
+        self.create_snake()
+        self.head = self.snake_piece[0]
+
     def extend(self):
         self.add_tail(self.snake_piece[-1].position())
 
